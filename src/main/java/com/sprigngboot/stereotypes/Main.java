@@ -27,7 +27,7 @@ public class Main {
 
 
 
-        AnnotationConfigApplicationContext context = getSpringContext("xls-reports");
+        AnnotationConfigApplicationContext context = getSpringContext();
 
         ClienteDAO clienteDAO = context.getBean(ClienteDAO.class);
         System.out.println(clienteDAO.crear());
@@ -35,9 +35,8 @@ public class Main {
 
     }
 
-    private static AnnotationConfigApplicationContext getSpringContext(String profile) {
+    private static AnnotationConfigApplicationContext getSpringContext() {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-        context.getEnvironment().setActiveProfiles(profile);
         context.register(Configuration.class);
         context.refresh();
         return context;
