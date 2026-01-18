@@ -1,6 +1,7 @@
 package com.sprigngboot.stereotypes;
 
 import com.sprigngboot.stereotypes.dao.ClienteDAO;
+import com.sprigngboot.stereotypes.ds.Persona;
 import com.sprigngboot.stereotypes.ds.Usuario;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -15,6 +16,16 @@ public class Main {
                 .edad(30)
                 .build();
         System.out.println(user.toString());
+
+        Persona persona = new Persona.BuilderPersona("Jose", "Lopez","Ruiz")
+                .edad(40)
+                .empresa("SCB")
+                .direccion("AV. JUAN DE ARONA")
+                .salario(3500.90)
+                .build();
+        System.out.println(persona.toString());
+
+
 
         AnnotationConfigApplicationContext context = getSpringContext("xls-reports");
 
