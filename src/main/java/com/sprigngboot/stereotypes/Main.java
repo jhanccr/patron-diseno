@@ -1,7 +1,9 @@
 package com.sprigngboot.stereotypes;
 
 import com.sprigngboot.stereotypes.dao.ClienteDAO;
+import com.sprigngboot.stereotypes.dao.TransporteFactory;
 import com.sprigngboot.stereotypes.ds.Persona;
+import com.sprigngboot.stereotypes.ds.Transporte;
 import com.sprigngboot.stereotypes.ds.Usuario;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -25,7 +27,9 @@ public class Main {
                 .build();
         System.out.println(persona.toString());
 
-
+        TransporteFactory fabrica = new TransporteFactory();
+        Transporte trasporte = fabrica.getInstance("Camion");
+        trasporte.enviar();
 
         AnnotationConfigApplicationContext context = getSpringContext();
 
